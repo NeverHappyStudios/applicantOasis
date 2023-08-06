@@ -19,18 +19,19 @@ class StartScreen extends StatelessWidget {
             ),
             const Text(
               style: TextStyle(color: Colors.white, fontSize: 20),
-              'Learn Flutter the fun way!',
+              'Don\'t Fuck This Up.',
             ),
             const SizedBox(
               height: 30,
             ),
             OutlinedButton(
               onPressed: () {},
+              style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
               child: const Text(
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  'Start Quiz'),
+                  // style: TextStyle(
+                  //   color: Colors.white,
+                  // ),
+                  'Press that button'),
             ),
           ],
         ),
