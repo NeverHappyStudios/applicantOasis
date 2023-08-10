@@ -20,7 +20,7 @@ class StartScreen extends StatelessWidget {
             ),
             const Text(
               style: TextStyle(color: Colors.white, fontSize: 20),
-              'Don\'t Fuck This Up.',
+              'Let\'s Fuck Shit Up.',
             ),
             const SizedBox(
               height: 30,
