@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './start_screen.dart';
-
 const startAlignment = Alignment.topRight;
 const endAlignment = Alignment.bottomCenter;
 
@@ -23,9 +21,6 @@ class GradientContainer extends StatelessWidget {
             color2,
           ],
         ),
-      ),
-      child: const Center(
-        child: StartScreen(),
       ),
     );
   }

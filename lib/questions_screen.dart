@@ -9,7 +9,7 @@ class QuiestionsScreen extends StatefulWidget {
 
 class _QuiestionsScreenState extends State<QuiestionsScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return const Text('Nuggets of Destiny');
   }
 }

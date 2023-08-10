@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './gradient_container.dart';
+import './start_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -11,13 +11,24 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
+  Widget build(context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GradientContainer(
-          Colors.black,
-          Color.fromARGB(255, 255, 0, 170),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black,
+                Color.fromARGB(255, 255, 0, 170),
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: const Center(
+            child: StartScreen(),
+          ),
         ),
       ),
     );
