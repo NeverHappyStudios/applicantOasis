@@ -36,7 +36,7 @@ class StartScreen extends StatelessWidget {
                 // style: TextStyle(
                 //   color: Colors.white,
                 // ),
-                'Press 1 button'),
+                'Press the button'),
           ),
         ],
       ),
