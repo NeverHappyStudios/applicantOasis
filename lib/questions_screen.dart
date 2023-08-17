@@ -10,6 +10,31 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return const Text('Nuggets of Destiny');
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('Question'),
+        const SizedBox(height: 30),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Answer 1'),
+        ),
+        const SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Answer 2'),
+        ),
+        const SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Answer 3'),
+        ),
+        const SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Answer 4'),
+        ),
+      ],
+    );
   }
 }
