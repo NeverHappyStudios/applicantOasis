@@ -2,7 +2,7 @@ import '../models/quiz_questions.dart';
 
 const questions = [
   QuizQuestion(
-    'What are the main building blocks of Fluuter UIs?',
+    'What are the main building blocks of Flutter UIs?',
     [
       'Widgets',
       'Components',

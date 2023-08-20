@@ -12,20 +12,27 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 40,
+    return Column(
+      children: [
+        const SizedBox(
+          height: 10,
         ),
-        backgroundColor: const Color.fromARGB(255, 4, 2, 100),
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(23),
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 40,
+            ),
+            backgroundColor: const Color.fromARGB(255, 4, 2, 100),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(23),
+            ),
+          ),
+          child: Text(answerText),
         ),
-      ),
-      child: Text(answerText),
+      ],
     );
   }
 }
