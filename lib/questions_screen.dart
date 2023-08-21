@@ -15,43 +15,52 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   Widget build(context) {
     final currentQuestion = questions[0];
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: <Widget>[
-              Text(
-                'Question',
-                style: TextStyle(
-                  fontSize: 23,
-                  foreground: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 3
-                    ..color = Colors.black,
-                ),
+    return SizedBox(
+      width: double.infinity,
+      child: Container(
+        margin: const EdgeInsets.all(15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                children: <Widget>[
+                  Text(
+                    currentQuestion.text,
+                    style: TextStyle(
+                      fontSize: 23,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 3
+                        ..color = Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    currentQuestion.text,
+                    style: const TextStyle(
+                      fontSize: 23,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-              Text(
-                currentQuestion.text,
-                style: const TextStyle(
-                  fontSize: 23,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 30),
+            ...currentQuestion.answers.map(
+              (answer) {
+                return AnswerButton(
+                  answerText: answer,
+                  onTap: () {},
+                );
+              },
+            ),
+          ],
         ),
-        const SizedBox(height: 30),
-        ...currentQuestion.answers.map(
-          (answer) {
-            return AnswerButton(
-              answerText: answer,
-              onTap: () {},
-            );
-          },
-        ),
-      ],
+      ),
     );
   }
 }
