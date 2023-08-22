@@ -29,7 +29,7 @@ const questions = [
     ],
   ),
   QuizQuestion(
-    'Which widget should you try to use more of then: StatelessWidget or StatefulWidget',
+    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
     [
       'StatelessWidget',
       'StatefulWidget',
