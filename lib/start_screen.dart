@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startQuiz, {super.key});
@@ -19,13 +20,31 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          const Text(
-            style: TextStyle(color: Colors.white, fontSize: 20),
-            'Let\'s Fuck Shit Up.',
-          ),
-          const SizedBox(
-            height: 30,
-          ),
+          SizedBox(
+              height: 30,
+              child: Stack(
+                children: <Widget>[
+                  Text(
+                    style: GoogleFonts.raleway(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 3
+                        ..color = Colors.black,
+                    ),
+                    'Let\'s Fuck Shit Up.',
+                  ),
+                  Text(
+                    style: GoogleFonts.raleway(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                    'Let\'s Fuck Shit Up.',
+                  ),
+                ],
+              )),
           OutlinedButton.icon(
             onPressed: startQuiz,
             style: OutlinedButton.styleFrom(
@@ -34,11 +53,23 @@ class StartScreen extends StatelessWidget {
             icon: const Icon(
               Icons.arrow_right_alt_outlined,
             ),
-            label: const Text(
-                // style: TextStyle(
-                //   color: Colors.white,
-                // ),
-                'Press the button'),
+            label: Stack(
+              children: [
+                Text(
+                    style: TextStyle(
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 3
+                        ..color = Colors.black,
+                    ),
+                    'Press the button'),
+                const Text(
+                    // style: TextSty5le(
+                    //   color: Colors.white,
+                    // ),
+                    'Press the button'),
+              ],
+            ),
           ),
         ],
       ),

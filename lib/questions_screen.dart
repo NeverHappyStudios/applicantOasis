@@ -1,4 +1,6 @@
+import 'package:adv_basics/start_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
@@ -16,7 +18,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void answerQuestion() {
     setState(
       () {
-        currentQuestionIndex++;
+        if (currentQuestionIndex == 5) {
+          currentQuestionIndex = 0;
+        } else
+          currentQuestionIndex++;
       },
     );
   }
@@ -39,8 +44,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 children: <Widget>[
                   Text(
                     currentQuestion.text,
-                    style: TextStyle(
+                    style: GoogleFonts.raleway(
                       fontSize: 23,
+                      fontWeight: FontWeight.bold,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 3
@@ -50,9 +56,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   ),
                   Text(
                     currentQuestion.text,
-                    style: const TextStyle(
+                    style: GoogleFonts.raleway(
                       fontSize: 23,
-                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 250, 96, 186),
                     ),
                     textAlign: TextAlign.center,
                   ),
