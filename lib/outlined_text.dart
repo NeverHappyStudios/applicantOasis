@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OutlinedText extends StatelessWidget {
-  OutlinedText(
+  const OutlinedText(
     this.data, {
     super.key,
     this.style,
@@ -17,27 +17,49 @@ class OutlinedText extends StatelessWidget {
     this.textWidthBasis,
     this.textHeightBehavior,
     this.selectionColor,
+    this.outlineColor,
+    this.textColor,
   });
 
   final String data;
-  TextStyle? style;
-  StrutStyle? strutStyle;
-  TextAlign? textAlign;
-  TextDirection? textDirection;
-  Locale? locale;
-  bool? softwrap;
-  TextOverflow? overflow;
-  double? textScaleFactor;
-  int? maxLines;
-  String? semanticsLabel;
-  TextWidthBasis? textWidthBasis;
-  TextHeightBehavior? textHeightBehavior;
-  Color? selectionColor;
+  final TextStyle? style;
+  final StrutStyle? strutStyle;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
+  final Locale? locale;
+  final bool? softwrap;
+  final TextOverflow? overflow;
+  final double? textScaleFactor;
+  final int? maxLines;
+  final String? semanticsLabel;
+  final TextWidthBasis? textWidthBasis;
+  final TextHeightBehavior? textHeightBehavior;
+  final Color? selectionColor;
+  final Color? outlineColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [Text(data)],
+      children: [
+        Text(
+          data,
+          key: key,
+          locale: locale,
+          maxLines: maxLines,
+          overflow: overflow,
+          selectionColor: selectionColor,
+          semanticsLabel: semanticsLabel,
+          softWrap: softwrap,
+          strutStyle: strutStyle,
+          style: style,
+          textAlign: textAlign,
+          textDirection: textDirection,
+          textHeightBehavior: textHeightBehavior,
+          textScaleFactor: textScaleFactor,
+          textWidthBasis: textWidthBasis,
+        )
+      ],
     );
   }
 }

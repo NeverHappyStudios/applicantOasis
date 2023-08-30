@@ -1,3 +1,4 @@
+import 'package:adv_basics/outlined_text.dart';
 import 'package:adv_basics/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,8 +55,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  Text(
-                    currentQuestion.text,
+                  OutlinedText(
+                    'test',
+                    // currentQuestion.text,
                     style: GoogleFonts.raleway(
                       fontSize: 23,
                       fontWeight: FontWeight.bold,
