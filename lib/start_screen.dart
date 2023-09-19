@@ -37,7 +37,7 @@ class StartScreen extends StatelessWidget {
                   ),
                   Text(
                     style: GoogleFonts.raleway(
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 250, 96, 186),
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OutlinedText extends StatelessWidget {
   const OutlinedText(
@@ -19,6 +20,8 @@ class OutlinedText extends StatelessWidget {
     this.selectionColor,
     this.outlineColor,
     this.textColor,
+    required this.fFont,
+    required this.fontSize,
   });
 
   final String data;
@@ -37,11 +40,37 @@ class OutlinedText extends StatelessWidget {
   final Color? selectionColor;
   final Color? outlineColor;
   final Color? textColor;
+  final Text fFont;
+  final int fontSize;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        Text(
+          data,
+          key: key,
+          locale: locale,
+          maxLines: maxLines,
+          overflow: overflow,
+          selectionColor: selectionColor,
+          semanticsLabel: semanticsLabel,
+          softWrap: softwrap,
+          strutStyle: strutStyle,
+          style: GoogleFonts.raleway(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            foreground: Paint()
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = 3
+              ..color = Colors.black,
+          ),
+          textAlign: textAlign,
+          textDirection: textDirection,
+          textHeightBehavior: textHeightBehavior,
+          textScaleFactor: textScaleFactor,
+          textWidthBasis: textWidthBasis,
+        ),
         Text(
           data,
           key: key,
@@ -58,7 +87,7 @@ class OutlinedText extends StatelessWidget {
           textHeightBehavior: textHeightBehavior,
           textScaleFactor: textScaleFactor,
           textWidthBasis: textWidthBasis,
-        )
+        ),
       ],
     );
   }
