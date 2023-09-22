@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './data/questions.dart';
+import './questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
@@ -28,6 +30,15 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where(
+      (data) {
+        return data['user_answer'] == data['correct_answer'];
+      },
+    ).length;
+    final numWrong = numTotalQuestions - numCorrectQuestions;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -36,11 +47,35 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('You suck. Get better.'),
+            Stack(
+              children: <Widget>[
+                Text(
+                  'You suck. $numCorrectQuestions correct. $numWrong incorrect. $numTotalQuestions total. Do better.',
+                  style: GoogleFonts.raleway(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 3
+                      ..color = Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'You suck. $numCorrectQuestions correct. $numWrong incorrect. $numTotalQuestions total. Do better.',
+                  style: GoogleFonts.raleway(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 250, 96, 186),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
             const SizedBox(
               height: 30,
             ),
-            const Text('No answers were right.'),
+            QuestionsSummary(summaryData),
             const SizedBox(
               height: 30,
             ),
