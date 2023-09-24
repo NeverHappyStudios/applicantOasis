@@ -44,33 +44,36 @@ class ResultsScreen extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(15),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Stack(
-              children: <Widget>[
-                Text(
-                  'You suck. $numCorrectQuestions correct. $numWrong incorrect. $numTotalQuestions total. Do better.',
-                  style: GoogleFonts.raleway(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                    foreground: Paint()
-                      ..style = PaintingStyle.stroke
-                      ..strokeWidth = 3
-                      ..color = Colors.black,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Stack(
+                children: <Widget>[
+                  Text(
+                    'You suck. $numCorrectQuestions correct. $numWrong incorrect. $numTotalQuestions total. Do better.',
+                    style: GoogleFonts.raleway(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 3
+                        ..color = Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  'You suck. $numCorrectQuestions correct. $numWrong incorrect. $numTotalQuestions total. Do better.',
-                  style: GoogleFonts.raleway(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 250, 96, 186),
+                  Text(
+                    'You suck. $numCorrectQuestions correct. $numWrong incorrect. $numTotalQuestions total. Do better.',
+                    style: GoogleFonts.raleway(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 250, 96, 186),
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
             const SizedBox(
               height: 30,
