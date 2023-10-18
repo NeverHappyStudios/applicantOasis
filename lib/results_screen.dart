@@ -4,28 +4,40 @@ import 'package:google_fonts/google_fonts.dart';
 import './data/questions.dart';
 import './questions_summary.dart';
 
-class ResultsScreen extends StatelessWidget {
+class ResultsScreen extends StatefulWidget {
   const ResultsScreen({
     super.key,
     required this.chosenAnswers,
+    required this.onRestartQuiz,
   });
 
   final List<String> chosenAnswers;
 
+  final void Function() onRestartQuiz;
+
+  @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends State<ResultsScreen> {
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
 
-    for (var i = 0; i < chosenAnswers.length; i++) {
+    for (var i = 0; i < widget.chosenAnswers.length; i++) {
       summary.add(
         {
           'question_index': i,
           'question': questions[i].text,
           'correct_answer': questions[i].answers[0],
-          'user_answer': chosenAnswers[i]
+          'user_answer': widget.chosenAnswers[i]
         },
       );
     }
     return summary;
+  }
+
+  void restartQuiz() {
+    widget.onRestartQuiz();
   }
 
   @override
@@ -82,8 +94,19 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            TextButton(
-                onPressed: () {}, child: const Text('Do better next time')),
+            ElevatedButton.icon(
+              icon: const Icon(
+                Icons.restart_alt,
+              ),
+              label: const Text('Restart Quiz'),
+              style: const ButtonStyle(
+                shape: MaterialStatePropertyAll(OvalBorder()),
+                backgroundColor: MaterialStatePropertyAll(Colors.purple),
+              ),
+              onPressed: () {
+                restartQuiz();
+              },
+            ),
           ],
         ),
       ),

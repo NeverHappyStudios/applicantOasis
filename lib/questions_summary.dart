@@ -29,8 +29,8 @@ class QuestionsSummary extends StatelessWidget {
                       children: [
                         Icon(Icons.circle, size: 40, color: userAnswerColor),
                         Center(
-                          heightFactor: 1.6,
-                          widthFactor: 5,
+                          heightFactor: 1.8,
+                          widthFactor: 5.5,
                           child: Stack(
                             children: <Widget>[
                               Text(
