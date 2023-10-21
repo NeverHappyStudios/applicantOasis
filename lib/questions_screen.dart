@@ -1,5 +1,3 @@
-import 'package:adv_basics/outlined_text.dart';
-import 'package:adv_basics/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
