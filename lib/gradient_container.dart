@@ -1,27 +1,29 @@
-import 'package:flutter/material.dart';
+//The code in this file is not used anywhere. File may be removed without worry. 
 
-const startAlignment = Alignment.topRight;
-const endAlignment = Alignment.bottomCenter;
+// import 'package:flutter/material.dart';
 
-class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.color1, this.color2, {super.key});
+// const startAlignment = Alignment.topRight;
+// const endAlignment = Alignment.bottomCenter;
 
-  final Color color1;
-  final Color color2;
+// class GradientContainer extends StatelessWidget {
+//   const GradientContainer(this.color1, this.color2, {super.key});
 
-  @override
-  Widget build(context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: startAlignment,
-          end: endAlignment,
-          colors: [
-            color1,
-            color2,
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   final Color color1;
+//   final Color color2;
+
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         gradient: LinearGradient(
+//           begin: startAlignment,
+//           end: endAlignment,
+//           colors: [
+//             color1,
+//             color2,
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
