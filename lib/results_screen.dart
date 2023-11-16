@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import './data/questions.dart';
 import 'questions_summary/questions_summary.dart';
 
-class ResultsScreen extends StatefulWidget {
+class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
     super.key,
     required this.chosenAnswers,
@@ -15,21 +15,16 @@ class ResultsScreen extends StatefulWidget {
 
   final void Function() onRestartQuiz;
 
-  @override
-  State<ResultsScreen> createState() => _ResultsScreenState();
-}
-
-class _ResultsScreenState extends State<ResultsScreen> {
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
 
-    for (var i = 0; i < widget.chosenAnswers.length; i++) {
+    for (var i = 0; i < chosenAnswers.length; i++) {
       summary.add(
         {
           'question_index': i,
           'question': questions[i].text,
           'correct_answer': questions[i].answers[0],
-          'user_answer': widget.chosenAnswers[i]
+          'user_answer': chosenAnswers[i]
         },
       );
     }
@@ -37,18 +32,17 @@ class _ResultsScreenState extends State<ResultsScreen> {
   }
 
   void restartQuiz() {
-    widget.onRestartQuiz();
+    onRestartQuiz();
   }
 
   @override
   Widget build(BuildContext context) {
-    final summaryData = getSummaryData();
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData.where(
-      (data) {
-        return data['user_answer'] == data['correct_answer'];
-      },
-    ).length;
+    final numCorrectQuestions = summaryData
+        .where(
+          (data) => data['user_answer'] == data['correct_answer'],
+        )
+        .length;
     final numWrong = numTotalQuestions - numCorrectQuestions;
 
     return SizedBox(
